@@ -776,10 +776,18 @@ void calibrate_sensors() {
   //Serial.println("Finishing Calibration");
 }
 
-
+// Servo
+#include <Servo.h> 
+Servo myservo;
+int servo_val;
+// End Servo
 
 void setup()
 {   
+  // Servo
+  myservo.attach(9);
+  // End Servo
+  
   int error;
   uint8_t c;
 
@@ -832,6 +840,11 @@ void setup()
 
 void loop()
 {  
+  // Servo
+  servo_val = map(servo_val, 0, 90, 0, 179);
+  myservo.write(servo_val);
+  // End Servo
+  
   int error;
   double dT;
   accel_t_gyro_union accel_t_gyro;
@@ -957,6 +970,10 @@ void loop()
   Serial.print(F(","));
   Serial.print(angle_z, 2);
   Serial.println(F(""));
+   
+  // Servo
+  servo_val = angle_x;
+  // End Servo
   
   // Delay so we don't swamp the serial port
   delay(5);
