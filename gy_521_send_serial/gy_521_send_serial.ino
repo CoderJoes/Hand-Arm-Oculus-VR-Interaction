@@ -149,7 +149,7 @@
 #define MPU6050_D5 5
 #define MPU6050_D6 6
 #define MPU6050_D7 7
-
+ 
 // AUX_VDDIO Register
 #define MPU6050_AUX_VDDIO MPU6050_D7  // I2C high: 1=VDD, 0=VLOGIC
 
